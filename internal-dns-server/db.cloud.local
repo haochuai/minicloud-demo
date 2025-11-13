@@ -1,0 +1,29 @@
+$TTL 1H
+
+@   IN  SOA ns.cloud.local. admin.cloud.local. (
+        6              ; Serial (tăng mỗi lần update)
+        1H
+        15M
+        1W
+        1H )
+
+    IN NS ns.cloud.local.
+
+; ========= DNS SERVER =========
+ns.cloud.local.      IN A 172.18.0.9
+
+; ========= WEB FRONTEND =========
+web-frontend-server.cloud.local.   IN A 172.18.0.6
+
+; ========= BACKEND =========
+app-backend.cloud.local.    IN A 10.10.10.20
+minio.cloud.local.          IN A 10.10.10.30
+keycloak.cloud.local.       IN A 10.10.10.40
+web-frontend-server.cloud.local. IN A 10.10.10.10
+; ========= MONITORING =========
+monitoring-prometheus-server.cloud.local. IN A 172.18.0.8
+monitoring-grafana-dashboard-server.cloud.local. IN A 172.18.0.4
+monitoring-node-exporter-server.cloud.local. IN A 172.18.0.7
+
+; ========= API GATEWAY =========
+api-gateway-proxy-server.cloud.local.     IN A 172.18.0.11

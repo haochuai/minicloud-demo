@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing - Tương lai của CNIT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .meta {
+            background: #f4f4f4;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .category {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .feature-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            overflow: hidden;
+        }
+        
+        .feature-image svg {
+            width: 200px;
+            height: 200px;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .footer-links {
+            background: #f4f4f4;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .back-link:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☁️ Cloud Computing</h1>
+            <p>Tương lai của Công nghệ Thông tin</p>
+        </header>
+        
+        <div class="meta">
+            <span class="date">📅 15/11/2025</span>
+            <span class="category">Công Nghệ</span>
+        </div>
+        
+        <div class="content">
+            <div class="feature-image">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:white;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 40 100 Q 40 60 80 60 Q 100 40 120 60 Q 160 60 160 100 Q 160 140 120 140 L 60 140 Q 40 140 40 120 Z" fill="url(#cloudGrad)"/>
+                    <circle cx="70" cy="100" r="5" fill="#667eea"/>
+                    <circle cx="100" cy="90" r="5" fill="#764ba2"/>
+                    <circle cx="130" cy="100" r="5" fill="#667eea"/>
+                </svg>
+            </div>
+            
+            <h2>Định nghĩa Cloud Computing</h2>
+            <p>
+                Cloud Computing (Điện toán đám mây) là mô hình cung cấp dịch vụ máy tính thông qua Internet. 
+                Thay vì mua và quản lý máy chủ riêng, các tổ chức có thể thuê tài nguyên từ các nhà cung cấp 
+                dịch vụ đám mây như AWS, Microsoft Azure, Google Cloud Platform, v.v.
+            </p>
+            
+            <h2>Ưu điểm của Cloud Computing</h2>
+            <ul>
+                <li><strong>Chi phí thấp hơn:</strong> Không cần đầu tư lớn vào cơ sở hạ tầng</li>
+                <li><strong>Độ tin cậy cao:</strong> Dữ liệu được sao lưu tự động trên nhiều máy chủ</li>
+                <li><strong>Tính linh hoạt:</strong> Có thể mở rộng hoặc thu hẹp tài nguyên theo nhu cầu</li>
+                <li><strong>Truy cập từ mọi nơi:</strong> Chỉ cần kết nối Internet</li>
+                <li><strong>Bảo mật tốt:</strong> Được quản lý bởi các chuyên gia bảo mật hàng đầu</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>💡 Tip hữu ích:</strong> Một doanh nghiệp có thể giảm 40% chi phí IT bằng cách 
+                chuyển sang Cloud so với quản lý cơ sở hạ tầng tại chỗ (On-Premises).
+            </div>
+            
+            <h2>Ba mô hình dịch vụ chính</h2>
+            <ol>
+                <li><strong>IaaS (Infrastructure as a Service):</strong> Cung cấp máy chủ ảo, lưu trữ, mạng</li>
+                <li><strong>PaaS (Platform as a Service):</strong> Cung cấp nền tảng phát triển ứng dụng</li>
+                <li><strong>SaaS (Software as a Service):</strong> Cung cấp phần mềm trực tiếp (Gmail, Office 365)</li>
+            </ol>
+            
+            <h2>Kết luận</h2>
+            <p>
+                Cloud Computing đang trở thành xu hướng chủ đạo của ngành IT. Nó mang lại nhiều lợi ích 
+                về chi phí, hiệu suất và bảo mật. Tuy nhiên, cần cân nhắc kỹ các yếu tố bảo mật, tuân thủ 
+                pháp luật khi chuyển dữ liệu lên cloud.
+            </p>
+        </div>
+        
+        <div class="footer-links">
+            <div class="nav-links">
+                <a href="/" class="back-link">← Trang chủ</a>
+                <a href="/blog/" class="back-link">← Quay lại Blog</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

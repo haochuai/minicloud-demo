@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & Version Control - Quản lý mã nguồn hiệu quả</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .meta {
+            background: #fef5e7;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .category {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .feature-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+        }
+        
+        h2 {
+            color: #e74c3c;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .workflow-steps {
+            background: #fef5e7;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .workflow-steps h4 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: #e74c3c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content strong {
+            color: #2c3e50;
+        }
+        
+        .highlight {
+            background: #ffe8e8;
+            padding: 20px;
+            border-left: 4px solid #e74c3c;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .footer-links {
+            background: #fef5e7;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .back-link:hover {
+            background: #f39c12;
+            transform: translateY(-2px);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 Git & Version Control</h1>
+            <p>Quản lý mã nguồn hiệu quả với Git</p>
+        </header>
+        
+        <div class="meta">
+            <span class="date">📅 13/11/2025</span>
+            <span class="category">Phát Triển</span>
+        </div>
+        
+        <div class="content">
+            <div class="feature-image">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="180" height="180">
+                    <circle cx="100" cy="70" r="20" fill="white"/>
+                    <circle cx="60" cy="130" r="20" fill="white"/>
+                    <circle cx="140" cy="130" r="20" fill="white"/>
+                    <line x1="100" y1="85" x2="60" y2="115" stroke="white" stroke-width="2"/>
+                    <line x1="100" y1="85" x2="140" y2="115" stroke="white" stroke-width="2"/>
+                    <line x1="60" y1="150" x2="140" y2="150" stroke="white" stroke-width="2"/>
+                </svg>
+            </div>
+            
+            <h2>Git là gì?</h2>
+            <p>
+                Git là một hệ thống quản lý phiên bản phân tán (DVCS - Distributed Version Control System) 
+                được tạo ra bởi Linus Torvalds vào năm 2005. Git cho phép các lập trình viên theo dõi 
+                những thay đổi trong mã nguồn, cộng tác với các thành viên khác, và quản lý các phiên bản 
+                khác nhau của dự án một cách hiệu quả.
+            </p>
+            
+            <h2>Tại sao cần Git?</h2>
+            <ul>
+                <li><strong>Lịch sử đầy đủ:</strong> Có thể xem lại tất cả các thay đổi trong quá khứ</li>
+                <li><strong>Cộng tác:</strong> Nhiều lập trình viên có thể làm việc cùng lúc</li>
+                <li><strong>Backup:</strong> Dữ liệu được sao lưu trên nhiều máy</li>
+                <li><strong>Branching:</strong> Dễ dàng tạo các nhánh để phát triển feature riêng</li>
+                <li><strong>Merge:</strong> Gộp các thay đổi từ các nhánh khác nhau</li>
+                <li><strong>Reverting:</strong> Có thể quay lại phiên bản trước nếu cần</li>
+            </ul>
+            
+            <h2>Quy trình Git cơ bản</h2>
+            <div class="workflow-steps">
+                <h4>Git Workflow</h4>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Modify:</strong> Thay đổi file trong working directory
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Stage:</strong> Thêm thay đổi vào staging area (git add)
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Commit:</strong> Lưu thay đổi vào repository (git commit)
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Push:</strong> Gửi commit lên remote repository (git push)
+                    </div>
+                </div>
+            </div>
+            
+            <h2>Lệnh Git cơ bản</h2>
+            <div class="code-block">
+# Khởi tạo repository
+git init
+
+# Clone repository
+git clone https://github.com/user/repo.git
+
+# Xem trạng thái
+git status
+
+# Thêm file vào staging
+git add .
+
+# Commit với message
+git commit -m "Add new feature"
+
+# Xem lịch sử commit
+git log
+
+# Tạo nhánh mới
+git branch feature-branch
+
+# Chuyển đến nhánh khác
+git checkout feature-branch
+
+# Merge nhánh
+git merge feature-branch
+
+# Push lên remote
+git push origin main
+
+# Pull từ remote
+git pull origin main
+            </div>
+            
+            <div class="highlight">
+                <strong>💡 Best Practices:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>Commit thường xuyên với message rõ ràng, có ý nghĩa</li>
+                    <li>Tạo branch riêng cho mỗi feature hoặc bug fix</li>
+                    <li>Luôn pull trước khi push để tránh conflict</li>
+                    <li>Sử dụng .gitignore để loại trừ file không cần theo dõi</li>
+                    <li>Code review trước khi merge vào main branch</li>
+                </ul>
+            </div>
+            
+            <h2>Các nền tảng Git phổ biến</h2>
+            <ul>
+                <li><strong>GitHub:</strong> Nền tảng lớn nhất, sở hữu bởi Microsoft</li>
+                <li><strong>GitLab:</strong> Nền tảng tự hosting, nhiều tính năng CI/CD</li>
+                <li><strong>Bitbucket:</strong> Phổ biến trong các doanh nghiệp, hỗ trợ Mercurial</li>
+                <li><strong>Gitea:</strong> Nền tảng tự hosting nhẹ, dễ triển khai</li>
+            </ul>
+            
+            <h2>Kết luận</h2>
+            <p>
+                Git đã trở thành tiêu chuẩn trong lập trình hiện đại. Dù bạn làm việc solo hay trong 
+                một team lớn, Git đều là công cụ không thể thiếu. Hiểu rõ cách sử dụng Git sẽ giúp bạn 
+                trở thành một lập trình viên tốt hơn và làm việc hiệu quả hơn trong dự án.
+            </p>
+        </div>
+        
+        <div class="footer-links">
+            <div class="nav-links">
+                <a href="/" class="back-link">← Trang chủ</a>
+                <a href="/blog/" class="back-link">← Quay lại Blog</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
