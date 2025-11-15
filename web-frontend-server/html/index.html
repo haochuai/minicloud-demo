@@ -1,7 +1,618 @@
-<h1>MyMiniCloud – Home</h1>
-<ul>
-  <li><a href="/blog/">Blog</a></li>
-  <li><a href="/blog/blog1.html">Blog 1</a></li>
-  <li><a href="/blog/blog2.html">Blog 2</a></li>
-  <li><a href="/blog/blog3.html">Blog 3</a></li>
-</ul>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMiniCloud - Cloud Infrastructure Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .cloud:nth-child(1) {
+            width: 200px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .cloud:nth-child(2) {
+            width: 150px;
+            height: 60px;
+            top: 30%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+        
+        .cloud:nth-child(3) {
+            width: 180px;
+            height: 70px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 6s;
+        }
+        
+        .cloud:nth-child(4) {
+            width: 220px;
+            height: 90px;
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 9s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-30px) translateX(20px);
+                opacity: 0.6;
+            }
+        }
+        
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .blog-link-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            margin-top: 30px;
+        }
+        
+        .blog-link-hero:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .blog-icon {
+            font-size: 1.5em;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .stat-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin: 80px 0;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: #f8f9fa;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-5px);
+        }
+        
+        /* Blog Preview */
+        .blog-preview {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 50px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .blog-preview h2 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .blog-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .blog-card-mini {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card-mini:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .blog-card-mini h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .blog-card-mini p {
+            font-size: 0.95em;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .blog-date {
+            font-size: 0.85em;
+            opacity: 0.8;
+            margin-top: 15px;
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            background: rgba(0,0,0,0.2);
+            margin-top: 80px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero p {
+                font-size: 1.2em;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-preview {
+                padding: 30px 20px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>☁️ MyMiniCloud</h1>
+            <p>Hệ Thống Cloud Infrastructure Demo</p>
+            <p class="hero-subtitle">Mô phỏng 9 server cơ bản trong Cloud Platform</p>
+            
+            <!-- Blog Link Button -->
+            <a href="/blog/" class="blog-link-hero">
+                <span class="blog-icon">📚</span>
+                <span class="blog-text">Blog Công Nghệ</span>
+            </a>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-icon">🖥️</div>
+                <span class="stat-number">9</span>
+                <span class="stat-label">Servers</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🐳</div>
+                <span class="stat-number">10</span>
+                <span class="stat-label">Containers</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🌐</div>
+                <span class="stat-number">1</span>
+                <span class="stat-label">Network</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Uptime</span>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features">
+            <div class="feature-card">
+                <span class="feature-icon">🌐</span>
+                <h3>Web Frontend</h3>
+                <p>Nginx server phục vụ website tĩnh với giao diện đẹp mắt và responsive.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">⚙️</span>
+                <h3>API Backend</h3>
+                <p>Flask application xử lý REST API với authentication tích hợp OIDC.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">💾</span>
+                <h3>Database</h3>
+                <p>MariaDB lưu trữ dữ liệu quan hệ với khả năng tự động khởi tạo schema.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🔐</span>
+                <h3>Authentication</h3>
+                <p>Keycloak quản lý identity và access với chuẩn OIDC protocol.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📦</span>
+                <h3>Object Storage</h3>
+                <p>MinIO cung cấp S3-compatible storage cho files và tài nguyên tĩnh.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🔍</span>
+                <h3>DNS Service</h3>
+                <p>Bind9 quản lý domain name resolution cho các services nội bộ.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📈</span>
+                <h3>Monitoring</h3>
+                <p>Prometheus thu thập metrics từ Node Exporter và các services.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Visualization</h3>
+                <p>Grafana dashboard hiển thị metrics và logs một cách trực quan.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🔄</span>
+                <h3>API Gateway</h3>
+                <p>Nginx reverse proxy điều phối traffic và load balancing.</p>
+            </div>
+        </section>
+        
+        <!-- Blog Preview -->
+        <section class="blog-preview">
+            <h2>📚 Blog Công Nghệ</h2>
+            <div class="blog-cards">
+                <a href="/blog/blog1.html" class="blog-card-mini">
+                    <h4>☁️ Cloud Computing</h4>
+                    <p>Tương lai của Công nghệ Thông tin</p>
+                    <span class="blog-date">📅 15/11/2025</span>
+                </a>
+                
+                <a href="/blog/blog2.html" class="blog-card-mini">
+                    <h4>🐳 Docker & Container</h4>
+                    <p>Hướng dẫn Cơ bản về Containerization</p>
+                    <span class="blog-date">📅 14/11/2025</span>
+                </a>
+                
+                <a href="/blog/blog3.html" class="blog-card-mini">
+                    <h4>🔧 Git & Version Control</h4>
+                    <p>Quản lý mã nguồn hiệu quả</p>
+                    <span class="blog-date">📅 13/11/2025</span>
+                </a>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>🚀 Khám Phá Hệ Thống</h2>
+            <p>Trải nghiệm kiến trúc cloud infrastructure hoàn chỉnh</p>
+            <div class="btn-group">
+                <a href="/blog/" class="btn btn-primary">Xem Blog</a>
+                <a href="http://localhost:9090" class="btn btn-secondary" target="_blank">Prometheus</a>
+                <a href="http://localhost:3000" class="btn btn-secondary" target="_blank">Grafana</a>
+                <a href="http://localhost:9001" class="btn btn-secondary" target="_blank">MinIO</a>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p><strong>MyMiniCloud</strong> - Cloud Infrastructure Demo Project</p>
+        <p>Xây dựng trên Docker, Nginx, Flask, MariaDB, Keycloak & MinIO</p>
+        <div class="social-links">
+            <a href="#" title="GitHub">💻</a>
+            <a href="#" title="Docker">🐳</a>
+            <a href="#" title="Documentation">📖</a>
+        </div>
+        <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9em;">© 2025 MyMiniCloud Project</p>
+    </footer>
+</body>
+</html>
